@@ -1,0 +1,122 @@
+.main {
+    display: flex;
+    justify-content: flex-end;
+}
+.main-square {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1440px;
+    height: 100vh;
+    border: rgba(0, 0, 0, 10%) solid 1px;
+    margin-right: 160px;
+    margin-left: 320px;
+}
+
+.main-square-text {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 170px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.main-square-text-divider {
+    height: 120px;
+    width: 5px;
+    background: linear-gradient(to bottom, #3877ee, #ef5da8);
+}
+
+.main-square-text-label {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 80px;
+}
+.main-square-text-label-upper {
+    font-size: 56px;
+}
+.main-square-text-label-lower {
+    font-size: 56px;
+}
+
+.main-square-line-vertical {
+    position: absolute;
+    height: 100%;
+    border-right: rgba(0, 0, 0, 10%) solid 1px;
+}
+
+.main-square-line-horizontal {
+    position: absolute;
+    width: 100%;
+    border-top: rgba(0, 0, 0, 10%) solid 1px;
+}
+
+.main-square-circle {
+    position: absolute;
+    width: 530px;
+    height: 530px;
+    border: rgba(0, 0, 0, 20%) solid 1px;
+    border-radius: 100%;
+}
+
+.main-square-numbers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-square-numbers-first {
+    padding-right: 125px;
+    font-size: 200px;
+    color: #5d5fef;
+}
+.main-square-numbers-second {
+    font-size: 200px;
+    color: #ef5da8;
+}
+
+
+
+.main-square-circle-buttons-single {
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    position: relative;
+    width: $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+
+    * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: $item-size;
+        height: $item-size;
+        margin: (calc($item-size / 2));
+        $angle: (calc(360 / $item-count));
+        $rot: 0;
+
+        @for $i from 1 through $item-count {
+            &:nth-of-type(#{$i}) {
+                transform: rotate($rot * 1deg) translate(calc($circle-size / 2)) rotate($rot * -1deg);
+            }
+
+            $rot: $rot + $angle;
+        }
+    }
+}
+
+.main-square-circle-buttons {
+    position: absolute;
+    @include on-circle(6, 530px, 60px);
+    display: flex;
+    justify-content: center;
+}
