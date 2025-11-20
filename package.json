@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "gsap": "^3.13.0",
     "lodash": "^4.17.21",
     "react": "^19.2.0",

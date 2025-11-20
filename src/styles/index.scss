@@ -1,122 +1,146 @@
+@font-face {
+    font-family: "PTSans";
+    src: url("../fonts/PTSans-Regular.ttf");
+}
+
 .main {
+    background-color: #f4f5f9;
     display: flex;
     justify-content: flex-end;
-}
-.main-square {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1440px;
-    height: 100vh;
-    border: rgba(0, 0, 0, 10%) solid 1px;
-    margin-right: 160px;
-    margin-left: 320px;
-}
-
-.main-square-text {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    padding: 170px 0px 0px 0px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.main-square-text-divider {
-    height: 120px;
-    width: 5px;
-    background: linear-gradient(to bottom, #3877ee, #ef5da8);
-}
-
-.main-square-text-label {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding-left: 80px;
-}
-.main-square-text-label-upper {
-    font-size: 56px;
-}
-.main-square-text-label-lower {
-    font-size: 56px;
-}
-
-.main-square-line-vertical {
-    position: absolute;
-    height: 100%;
-    border-right: rgba(0, 0, 0, 10%) solid 1px;
-}
-
-.main-square-line-horizontal {
-    position: absolute;
-    width: 100%;
-    border-top: rgba(0, 0, 0, 10%) solid 1px;
-}
-
-.main-square-circle {
-    position: absolute;
-    width: 530px;
-    height: 530px;
-    border: rgba(0, 0, 0, 20%) solid 1px;
-    border-radius: 100%;
-}
-
-.main-square-numbers {
-    display: flex;
-    justify-content: space-between;
-}
-
-.main-square-numbers-first {
-    padding-right: 125px;
-    font-size: 200px;
-    color: #5d5fef;
-}
-.main-square-numbers-second {
-    font-size: 200px;
-    color: #ef5da8;
-}
-
-
-
-.main-square-circle-buttons-single {
-    border-radius: 100%;
-    height: 60px;
-    width: 60px;
-}
-
-@mixin on-circle($item-count, $circle-size, $item-size) {
-    position: relative;
-    width: $circle-size;
-    height: $circle-size;
-    padding: 0;
-    border-radius: 50%;
-    list-style: none;
-
-    * {
+    &-square {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        width: $item-size;
-        height: $item-size;
-        margin: (calc($item-size / 2));
-        $angle: (calc(360 / $item-count));
-        $rot: 0;
-
-        @for $i from 1 through $item-count {
-            &:nth-of-type(#{$i}) {
-                transform: rotate($rot * 1deg) translate(calc($circle-size / 2)) rotate($rot * -1deg);
+        width: 1440px;
+        height: 100vh;
+        border: rgba(0, 0, 0, 10%) solid 1px;
+        margin-right: 160px;
+        margin-left: 320px;
+        &-text {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            padding: 170px 0px 0px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            &-divider {
+                height: 120px;
+                width: 5px;
+                background: linear-gradient(to bottom, #3877ee, #ef5da8);
             }
-
-            $rot: $rot + $angle;
+            &-label {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                padding-left: 80px;
+                &-upper {
+                    color: #42567a;
+                    font-weight: bold;
+                    font-family: "PTSans";
+                    font-size: 56px;
+                }
+                &-lower {
+                    color: #42567a;
+                    font-weight: bold;
+                    font-family: "PTSans";
+                    font-size: 56px;
+                }
+            }
+        }
+        &-line {
+            &-vertical {
+                position: absolute;
+                height: 100%;
+                border-right: rgba(0, 0, 0, 10%) solid 1px;
+            }
+            &-horizontal {
+                position: absolute;
+                width: 100%;
+                border-top: rgba(0, 0, 0, 10%) solid 1px;
+            }
+        }
+        &-circle {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 530px;
+            height: 530px;
+            border: rgba(0, 0, 0, 20%) solid 1px;
+            border-radius: 100%;
+            &-buttons {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &-single {
+                    background-color: #42567a;
+                    position: absolute;
+                    border-radius: 100%;
+                    border: none;
+                    height: 6px;
+                    width: 6px;
+                    padding: 0;
+                    cursor: pointer;
+                    text-indent: -9999em;
+                    $angle: calc(360 / 6);
+                    $rot: 0;
+                    @for $i from 1 through 6 {
+                        &:nth-of-type(#{$i}) {
+                            transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
+                        }
+                        $rot: $rot + $angle;
+                    }
+                }
+                &-single:hover {
+                    background-color: #f4f5f9;
+                    position: absolute;
+                    border-radius: 100%;
+                    border: rgba($color: #303e58, $alpha: 0.5) 1px solid;
+                    height: 60px;
+                    width: 60px;
+                    padding: 0;
+                    text-indent: 0;
+                    cursor: pointer;
+                    $angle: calc(360 / 6);
+                    $rot: 0;
+                    @for $i from 1 through 6 {
+                        &:nth-of-type(#{$i}) {
+                            transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
+                        }
+                        $rot: $rot + $angle;
+                    }
+                }
+            }
+        }
+        &-years {
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: space-evenly;
+            pointer-events: none;
+            user-select: none;
+            &-first {
+                font-weight: bold;
+                font-family: "PTSans";
+                letter-spacing: -2%;
+                line-height: 160px;
+                font-size: 200px;
+                color: #5d5fef;
+            }
+            &-second {
+                font-weight: bold;
+                font-family: "PTSans";
+                letter-spacing: -2%;
+                line-height: 160px;
+                font-size: 200px;
+                color: #ef5da8;
+            }
+        }
+        &-swiper {
+            position: absolute;
         }
     }
-}
-
-.main-square-circle-buttons {
-    position: absolute;
-    @include on-circle(6, 530px, 60px);
-    display: flex;
-    justify-content: center;
 }

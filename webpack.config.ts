@@ -1,10 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// Минимзация файлов css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
 
-// Нужен для анализа, при финальной сборке проверить на память
 const {
     BundleAnalyzerPlugin
 } = require('webpack-bundle-analyzer');
@@ -91,7 +88,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css', // Добавляем хеш
         }),
-        new Dotenv(), // загружает переменные из .env
         new CopyWebpackPlugin({
             patterns: [
                 {
