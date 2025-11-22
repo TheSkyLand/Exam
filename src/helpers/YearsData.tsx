@@ -1,5 +1,3 @@
-import { SwiperData } from "./SwiperData"
-
 export const YearsData = [
     {
         id: 1,

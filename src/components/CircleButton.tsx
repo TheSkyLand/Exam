@@ -1,5 +1,10 @@
 import React from "react"
+import { useRef } from "react";
 import gsap from "gsap"
+import { useGSAP } from '@gsap/react';
+
+
+
 
 interface CircleButtonProps {
     firstYear: (value: number) => void,
@@ -9,25 +14,35 @@ interface CircleButtonProps {
     back: (value: number) => void;
 }
 
+gsap.registerPlugin(useGSAP);
 
 const CircleButton = (props: CircleButtonProps) => {
+    const rot = () => {
+        let angle = 360 / props.num
+        gsap.to(
+            ".main-square-circle-buttons",
+            {
+                duration: 1,
+                rotation: `+=${angle}`
+            }
+        )
+        gsap.to(
+            ".main-square-circle-buttons-single",
+            {
+                rotation: `-=${angle}`
+            }
+        )
+        console.log("call successful")
+    }
+
+
+
+
     const test = (t: number) => {
         props.firstYear(t);
         props.secondYear(t);
         props.back(t);
-        rotate(angle, rot)
-    }
-    let angle = 360 / 6;
-    let rot = 0;
-    function rotate(angle, rot) {
-        for(let i = 0; i > 6; i++)
-        {
-            gsap.to(`"main-square-circle-buttons-single":nth-of-type(${i})`, { 
-                duration: 1.5,
-                transform: rot * 1, 
-                translate: 530 / 2, 
-                rotate: rot * -1 })
-        }
+        rot();
     }
 
 
@@ -42,7 +57,7 @@ const CircleButton = (props: CircleButtonProps) => {
             <div
                 className="main-square-circle-buttons-single-label"
             >{props.label}</div>
-        </div>
+        </div >
     )
 }
 

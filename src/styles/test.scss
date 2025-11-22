@@ -11,22 +11,17 @@
     src: url("../fonts/BebasNeue-Regular.ttf");
 }
 
-body {
-    margin: 0px;
-}
 .main {
     background-color: #f4f5f9;
     display: flex;
-    margin: 0px;
-    padding: 0px;
     &-square {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 1440px;
         height: 100vh;
-        border: rgba($color: #42567a, $alpha: 10%) solid 1px;
+        border: rgba(0, 0, 0, 10%) solid 1px;
         margin-right: 160px;
         margin-left: 320px;
         &-text {
@@ -63,12 +58,12 @@ body {
             &-vertical {
                 position: absolute;
                 height: 100%;
-                border-right: rgba($color: #42567a, $alpha: 10%) solid 1px;
+                border-right: rgba(0, 0, 0, 10%) solid 1px;
             }
             &-horizontal {
                 position: absolute;
                 width: 100%;
-                border-top: rgba($color: #42567a, $alpha: 10%) solid 1px;
+                border-top: rgba(0, 0, 0, 10%) solid 1px;
             }
         }
         &-circle {
@@ -78,7 +73,7 @@ body {
             align-items: center;
             width: 530px;
             height: 530px;
-            border: rgba($color: #42567a, $alpha: 20%) solid 1px;
+            border: rgba(0, 0, 0, 20%) solid 1px;
             border-radius: 100%;
             &-buttons {
                 position: absolute;
@@ -104,7 +99,6 @@ body {
                         $rot: $rot + $angle;
                     }
                     &-digit {
-                        transition: 0.5s ease;
                         font-family: "PTSans";
                         color: #42567a;
                         font-size: 20px;
@@ -116,7 +110,6 @@ body {
                         pointer-events: none;
                     }
                     &-label {
-                        transition: 0.5s ease;
                         font-family: "PTSans Bold";
                         color: #42567a;
                         font-size: 20px;
@@ -195,23 +188,22 @@ body {
                 color: #ef5da8;
             }
         }
-
         &-swiper {
-            bottom: 0px;
             position: absolute;
+            left: 0px;
+            bottom: 0px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
-            margin: 80px 0px 80px 0px;
-            justify-content: center;
-            width: 1200px;
-
+            pointer-events: visiblePainted;
+            margin: 80px;
+            pointer-events: none;
             &-switch {
                 flex-wrap: wrap;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                width: 1200px;
+                width: 120px;
                 &-pagination {
                     width: 100%;
                     font-size: 14px;
@@ -234,17 +226,13 @@ body {
             }
             &-dates {
                 display: flex;
-                padding-top: 56px;
-                width: 100%;
-                flex-wrap: wrap;
                 flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                align-content: center;
+                padding-top: 56px;
                 &-events {
                     display: flex;
                     flex-wrap: wrap;
                     flex-direction: column;
+                    padding-right: 80px;
                     &-year {
                         padding-bottom: 20px;
                         font-size: 25px;
@@ -252,34 +240,13 @@ body {
                         color: #3877ee;
                     }
                     &-info {
-                        width: 320px;
+                        width: 400px;
                         font-size: 20px;
                         font-family: "PTSans";
                         color: #42567a;
-                        width: 100%;
                     }
                 }
             }
         }
-    }
-}
-
-.swiper {
-    position: absolute;
-    bottom: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    &-wrapper {
-        position: absolute;
-        display: flex;
-        padding-top: 56px;
-        width: 100%;
-        flex-direction: row;
-        align-content: center;
-    }
-    &-slide{
-        width: 320px;
     }
 }

@@ -1,28 +1,39 @@
-import SwiperPagination from "../components/SwiperPagination";
-import SwiperSection from "../components/SwiperSection";
 import CircleButton from "../components/CircleButton"
 import { YearsData } from '../helpers/YearsData';
 import { SwiperData } from "../helpers/SwiperData";
-import React from 'react';
-import { useSwiper, Swiper, SwiperSlide } from 'swiper/react';
-import "../styles/index.scss"
-import { useRef } from 'react';
+import React, { useState } from 'react';
+import "../styles/test.scss"
+
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
+gsap.registerPlugin(useGSAP);
 
 
-const MainPage = () => {
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
+
+
+
+const DraftPage = () => {
     const [inputNum, setInput] = React.useState('');
     const [firstYear, setFirstYear] = React.useState("1980")
     const [secondYear, setSecondYear] = React.useState("1986")
-    const [page, setPage] = React.useState(1)
-    const swiper = useSwiper();
+    const [counter, setCounter] = React.useState(1);
+
+    const counterUp = (year: number, value: number) => {
+        for (let i = year; i == value; i++) {
+            year++;
+        }
+        return year;
+    }
+
+
 
 
 
     const backNum = (value: number) => {
         setInput(value.toString());
-        console.log(inputNum)
+        setCounter(value)
     }
 
     const backFirstYear = (value: string) => {
@@ -33,11 +44,13 @@ const MainPage = () => {
         setSecondYear(value.toString());
     }
 
+
     return (
         <div className="main">
             <div className="main-square">
                 <div className="main-square-years">
-                    <span className="main-square-years-first">{firstYear}</span>
+                    <span
+                        className="main-square-years-first">{firstYear}</span>
                     <span className="main-square-years-second">{secondYear}</span>
                 </div>
                 <div className="main-square-text">
@@ -63,22 +76,44 @@ const MainPage = () => {
                         }
                     </div>
                 </div>
-                <div className='main-square-swiper'>
-                    <SwiperPagination
-                    page={page}
-                    />
-                    <div className="main-square-swiper-dates">
-                        {SwiperData.map((item, key) => (
-                            <SwiperSection
-                                date={item.date}
-                                info={item.info}
-                            />
-                        ))}
+
+            </div>
+            <div className="main-square-swiper">
+
+                <div className="main-square-swiper-switch">
+                    <div className="main-square-swiper-switch-pagination">
+                        <div className="main-square-swiper-switch-pagination-button">
+                        </div>
+                        <div className="main-square-swiper-switch-pagination-button">
+                        </div>
                     </div>
                 </div>
+
+                <Swiper
+                    className="main-square-swiper-dates"
+                    slidesPerView={3}
+                    spaceBetween={80}
+                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+                >
+                    {SwiperData.map((item, key) => (
+                        <SwiperSlide
+                            className="main-square-swiper-dates-events"
+                        >
+                            <div className="main-square-swiper-dates-events-year">{item.date}</div>
+                            <div className="main-square-swiper-dates-events-info">{item.info}</div>
+                        </SwiperSlide>
+                    ))}
+
+                </Swiper>
+
             </div>
-        </div >
+
+        </div>
     )
 }
 
-export default MainPage
+export default DraftPage

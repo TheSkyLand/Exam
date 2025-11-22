@@ -19,6 +19,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
+    "@types/swiper": "^5.4.3",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.1",
     "clean-webpack-plugin": "^4.0.0",
