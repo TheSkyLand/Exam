@@ -4,31 +4,31 @@ export const SwiperData = [
         data: [
             {
                 date: "1980",
-                info: ""
+                info: "test"
             },
             {
                 date: "1981",
-                info: "agag"
+                info: "test"
             },
             {
                 date: "1982",
-                info: "asgasg"
+                info: "test"
             },
             {
                 date: "1983",
-                info: "asgasg"
+                info: "test"
             },
             {
                 date: "1984",
-                info: "asgasg"
+                info: "test"
             },
             {
                 date: "1985",
-                info: "asgasg"
+                info: "test"
             },
             {
                 date: "1986",
-                info: "asgasg"
+                info: "test"
             }
         ]
     },
@@ -36,32 +36,32 @@ export const SwiperData = [
         id: 2,
         data: [
             {
-                date: "1980",
-                info: ""
+                date: "1987",
+                info: "test"
             },
             {
-                date: "1981",
-                info: "agag"
+                date: "1988",
+                info: "test"
             },
             {
-                date: "1982",
-                info: "asgasg"
+                date: "1989",
+                info: "test"
             },
             {
-                date: "1983",
-                info: "asgasg"
+                date: "1990",
+                info: "test"
             },
             {
-                date: "1984",
-                info: "asgasg"
+                date: "1991",
+                info: "test"
             },
             {
-                date: "1985",
-                info: "asgasg"
+                date: "1992",
+                info: "test"
             },
             {
-                date: "1986",
-                info: "asgasg"
+                date: "1993",
+                info: "test"
             }
         ]
     },
@@ -69,32 +69,32 @@ export const SwiperData = [
         id: 3,
         data: [
             {
-                date: "1980",
-                info: ""
+                date: "1994",
+                info: "test"
             },
             {
-                date: "1981",
-                info: "agag"
+                date: "1995",
+                info: "test"
             },
             {
-                date: "1982",
-                info: "asgasg"
+                date: "1996",
+                info: "test"
             },
             {
-                date: "1983",
-                info: "asgasg"
+                date: "1997",
+                info: "test"
             },
             {
-                date: "1984",
-                info: "asgasg"
+                date: "1998",
+                info: "test"
             },
             {
-                date: "1985",
-                info: "asgasg"
+                date: "1999",
+                info: "test"
             },
             {
-                date: "1986",
-                info: "asgasg"
+                date: "2001",
+                info: "test"
             }
         ]
     },
@@ -102,32 +102,32 @@ export const SwiperData = [
         id: 4,
         data: [
             {
-                date: "1980",
-                info: ""
+                date: "2002",
+                info: "test"
             },
             {
-                date: "1981",
-                info: "agag"
+                date: "2003",
+                info: "test"
             },
             {
-                date: "1982",
-                info: "asgasg"
+                date: "2004",
+                info: "test"
             },
             {
-                date: "1983",
-                info: "asgasg"
+                date: "2005",
+                info: "test"
             },
             {
-                date: "1984",
-                info: "asgasg"
+                date: "2006",
+                info: "test"
             },
             {
-                date: "1985",
-                info: "asgasg"
+                date: "2007",
+                info: "test"
             },
             {
-                date: "1986",
-                info: "asgasg"
+                date: "2008",
+                info: "test"
             }
         ]
     },
@@ -135,32 +135,32 @@ export const SwiperData = [
         id: 5,
         data: [
             {
-                date: "1980",
-                info: ""
+                date: "2009",
+                info: "test"
             },
             {
-                date: "1981",
-                info: "agag"
+                date: "2010",
+                info: "test"
             },
             {
-                date: "1982",
-                info: "asgasg"
+                date: "2011",
+                info: "test"
             },
             {
-                date: "1983",
-                info: "asgasg"
+                date: "2012",
+                info: "test"
             },
             {
-                date: "1984",
-                info: "asgasg"
+                date: "2013",
+                info: "test"
             },
             {
-                date: "1985",
-                info: "asgasg"
+                date: "2014",
+                info: "test"
             },
             {
-                date: "1986",
-                info: "asgasg"
+                date: "2015",
+                info: "test"
             }
         ]
     },
@@ -168,32 +168,32 @@ export const SwiperData = [
         id: 6,
         data: [
             {
-                date: "1980",
-                info: ""
+                date: "2016",
+                info: "test"
             },
             {
-                date: "1981",
-                info: "agag"
+                date: "2017",
+                info: "test"
             },
             {
-                date: "1982",
-                info: "asgasg"
+                date: "2018",
+                info: "test"
             },
             {
-                date: "1983",
-                info: "asgasg"
+                date: "2019",
+                info: "test"
             },
             {
-                date: "1984",
-                info: "asgasg"
+                date: "2020",
+                info: "test"
             },
             {
-                date: "1985",
-                info: "asgasg"
+                date: "2021",
+                info: "test"
             },
             {
-                date: "1986",
-                info: "asgasg"
+                date: "2022",
+                info: "test"
             }
         ]
     }

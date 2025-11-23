@@ -19,11 +19,7 @@ const TestPage = () => {
     const [firstYear, setFirstYear] = React.useState("1980")
     const [secondYear, setSecondYear] = React.useState("1986")
     const [counter, setCounter] = React.useState(1);
-
-    const backNum = (value: number) => {
-        setInput(value.toString());
-        console.log(inputNum)
-    }
+    
 
     const backFirstYear = (value: string) => {
         setFirstYear(value.toString());
@@ -32,6 +28,23 @@ const TestPage = () => {
     const backSecondYear = (value: string) => {
         setSecondYear(value.toString());
     }
+
+    const backCounter = (value: number) => {
+        setCounter(value)
+    }
+
+    {
+        SwiperData.map((index, key) => {
+
+            {
+                index.data.map((index, key) => {
+                    console.log(index.date, index.info)
+                })
+            }
+
+        })
+    }
+
 
     return (
         <div className="main">
@@ -55,9 +68,10 @@ const TestPage = () => {
                             <CircleButton
                                 firstYear={() => backFirstYear(item.firstYear)}
                                 secondYear={() => backSecondYear(item.secondYear)}
+                                rotate={() => backCounter(item.id)}
                                 num={item.id}
                                 label={item.label}
-                                back={backNum}
+
                             />
                         ))
                         }
@@ -83,14 +97,9 @@ const TestPage = () => {
                         className="main-square-swiper-dates">
                         {SwiperData.map((index) => (
                             <SwiperSlide
-                            key={counter}
                                 className="main-square-swiper-dates-events">
-                                {index.data.map((index) => (
-                                    <div>
-                                        <div className="main-square-swiper-dates-events-year">{index.date}</div>
-                                        <div className="main-square-swiper-dates-events-info">{index.info}</div>
-                                    </div>
-                                ))}
+                                <div className="main-square-swiper-dates-events-year">{index.id}</div>
+                                <div className="main-square-swiper-dates-events-info">{index.id}</div>
                             </SwiperSlide>
                         ))}
 
