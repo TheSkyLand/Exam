@@ -9,15 +9,16 @@ import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 
 import "swiper/css"
+import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Navigation } from 'swiper/modules';
 
 
 const TestPage = () => {
     const [inputNum, setInput] = React.useState('');
     const [firstYear, setFirstYear] = React.useState("1980")
     const [secondYear, setSecondYear] = React.useState("1986")
-    const [page, setPage] = React.useState(1)
+    const [counter, setCounter] = React.useState(1);
 
     const backNum = (value: number) => {
         setInput(value.toString());
@@ -64,18 +65,35 @@ const TestPage = () => {
                 </div>
                 <div className='main-square-swiper'>
                     <div className="main-square-swiper-switch">
-                        <div className="main-square-swiper-switch-pagination">01/06</div>
-                        <button className="main-square-swiper-switch-button"><img src={require("../images/Vector2.svg")} /></button>
-                        <button className="main-square-swiper-switch-button"><img src={require("../images/Vector1.svg")} /></button>
+                        <div className="main-square-swiper-switch-pagination">0{counter}/06</div>
+                        <button
+                            className="main-square-swiper-switch-button"
+                            onClick={() => setCounter(counter - 1)}
+                        ><img src={require("../images/Vector2.svg")} /></button>
+                        <button
+                            className="main-square-swiper-switch-button"
+                            onClick={() => setCounter(counter + 1)}
+                        ><img src={require("../images/Vector1.svg")} /></button>
                     </div>
-                    <Swiper className="main-square-swiper-dates">
-                        {SwiperData.map((index, key) => (
+
+                    <Swiper
+                        navigation={true}
+                        slidesPerView={3}
+                        modules={[Navigation]}
+                        className="main-square-swiper-dates">
+                        {SwiperData.map((index) => (
                             <SwiperSlide
+                            key={counter}
                                 className="main-square-swiper-dates-events">
-                                <div className="main-square-swiper-dates-events-year">{index.date}</div>
-                                <div className="main-square-swiper-dates-events-info">{index.info}</div>
+                                {index.data.map((index) => (
+                                    <div>
+                                        <div className="main-square-swiper-dates-events-year">{index.date}</div>
+                                        <div className="main-square-swiper-dates-events-info">{index.info}</div>
+                                    </div>
+                                ))}
                             </SwiperSlide>
                         ))}
+
                     </Swiper>
                 </div>
             </div>
@@ -84,3 +102,4 @@ const TestPage = () => {
 }
 
 export default TestPage
+
