@@ -2,18 +2,25 @@
     font-family: "PTSans";
     src: url("../fonts/PTSans-Regular.ttf");
 }
+
 @font-face {
     font-family: "PTSans Bold";
     src: url("../fonts/PTSans-Bold.ttf");
 }
+
 @font-face {
     font-family: "Bebas Neue";
     src: url("../fonts/BebasNeue-Regular.ttf");
 }
 
+body {
+    margin: 0px;
+}
+
 .main {
     background-color: #f4f5f9;
     display: flex;
+
     &-square {
         position: relative;
         display: flex;
@@ -24,6 +31,7 @@
         border: rgba(0, 0, 0, 10%) solid 1px;
         margin-right: 160px;
         margin-left: 320px;
+
         &-text {
             position: absolute;
             top: 0px;
@@ -32,21 +40,25 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+
             &-divider {
                 height: 120px;
                 width: 5px;
                 background: linear-gradient(to bottom, #3877ee, #ef5da8);
             }
+
             &-label {
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: column;
                 padding-left: 80px;
+
                 &-upper {
                     color: #42567a;
                     font-family: "PTSans Bold";
                     font-size: 56px;
                 }
+
                 &-lower {
                     color: #42567a;
                     font-family: "PTSans Bold";
@@ -54,18 +66,21 @@
                 }
             }
         }
+
         &-line {
             &-vertical {
                 position: absolute;
                 height: 100%;
                 border-right: rgba(0, 0, 0, 10%) solid 1px;
             }
+
             &-horizontal {
                 position: absolute;
                 width: 100%;
                 border-top: rgba(0, 0, 0, 10%) solid 1px;
             }
         }
+
         &-circle {
             position: absolute;
             display: flex;
@@ -75,11 +90,13 @@
             height: 530px;
             border: rgba(0, 0, 0, 20%) solid 1px;
             border-radius: 100%;
+
             &-buttons {
                 position: absolute;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
                 &-single {
                     transition: all 0.3s ease-in-out;
                     background-color: #42567a;
@@ -92,12 +109,15 @@
                     text-indent: -9999em;
                     $angle: calc(360 / 6);
                     $rot: 0;
+
                     @for $i from 1 through 6 {
                         &:nth-of-type(#{$i}) {
                             transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
                         }
+
                         $rot: $rot + $angle;
                     }
+
                     &-digit {
                         font-family: "PTSans";
                         color: #42567a;
@@ -109,6 +129,7 @@
                         user-select: none;
                         pointer-events: none;
                     }
+
                     &-label {
                         font-family: "PTSans Bold";
                         color: #42567a;
@@ -120,6 +141,7 @@
                         pointer-events: none;
                     }
                 }
+
                 &-single:hover {
                     transition: 0.5s;
                     display: flex;
@@ -136,12 +158,38 @@
                     cursor: pointer;
                     $angle: calc(360 / 6);
                     $rot: 0;
+
                     @for $i from 1 through 6 {
                         &:nth-of-type(#{$i}) {
                             transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
                         }
+
                         $rot: $rot + $angle;
+
+                        &-digit {
+                            font-family: "PTSans";
+                            color: #42567a;
+                            font-size: 20px;
+                            display: flex;
+                            justify-content: center;
+                            width: 60px;
+                            padding: 40px;
+                            user-select: none;
+                            pointer-events: none;
+                        }
+
+                        &-label {
+                            font-family: "PTSans Bold";
+                            color: #42567a;
+                            font-size: 20px;
+                            line-height: 30px;
+                            letter-spacing: 0%;
+                            width: 0px;
+                            user-select: none;
+                            pointer-events: none;
+                        }
                     }
+
                     &-digit {
                         font-family: "PTSans";
                         color: #42567a;
@@ -151,6 +199,7 @@
                         width: 60px;
                         padding: 40px;
                     }
+
                     &-label {
                         font-family: "PTSans Bold";
                         color: #42567a;
@@ -162,6 +211,7 @@
                 }
             }
         }
+
         &-years {
             width: 100%;
             position: absolute;
@@ -169,6 +219,7 @@
             justify-content: space-evenly;
             pointer-events: none;
             user-select: none;
+
             &-first {
                 width: auto;
                 font-weight: bold;
@@ -178,6 +229,7 @@
                 font-size: 200px;
                 color: #5d5fef;
             }
+
             &-second {
                 width: auto;
                 font-weight: bold;
@@ -188,6 +240,7 @@
                 color: #ef5da8;
             }
         }
+
         &-swiper {
             position: absolute;
             left: 0px;
@@ -195,21 +248,22 @@
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
-            pointer-events: visiblePainted;
             margin: 80px;
-            pointer-events: none;
+
             &-switch {
                 flex-wrap: wrap;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 width: 120px;
+
                 &-pagination {
                     width: 100%;
                     font-size: 14px;
                     font-family: "PTSans";
                     padding-bottom: 20px;
                 }
+
                 &-button {
                     display: flex;
                     justify-content: center;
@@ -224,21 +278,25 @@
                     pointer-events: all;
                 }
             }
+
             &-dates {
                 display: flex;
                 flex-direction: row;
                 padding-top: 56px;
+
                 &-events {
                     display: flex;
                     flex-wrap: wrap;
                     flex-direction: column;
                     padding-right: 80px;
+
                     &-year {
                         padding-bottom: 20px;
                         font-size: 25px;
                         font-family: "Bebas Neue";
                         color: #3877ee;
                     }
+
                     &-info {
                         width: 400px;
                         font-size: 20px;
@@ -250,3 +308,5 @@
         }
     }
 }
+
+.swiper-button {}
