@@ -2,10 +2,12 @@
     font-family: "PTSans";
     src: url("../fonts/PTSans-Regular.ttf");
 }
+
 @font-face {
     font-family: "PTSans Bold";
     src: url("../fonts/PTSans-Bold.ttf");
 }
+
 @font-face {
     font-family: "Bebas Neue";
     src: url("../fonts/BebasNeue-Regular.ttf");
@@ -14,11 +16,13 @@
 body {
     margin: 0px;
 }
+
 .main {
     background-color: #f4f5f9;
     display: flex;
     margin: 0px;
     padding: 0px;
+
     &-square {
         position: relative;
         display: flex;
@@ -29,6 +33,7 @@ body {
         border: rgba($color: #42567a, $alpha: 10%) solid 1px;
         margin-right: 160px;
         margin-left: 320px;
+
         &-text {
             position: absolute;
             top: 0px;
@@ -37,21 +42,25 @@ body {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+
             &-divider {
                 height: 120px;
                 width: 5px;
                 background: linear-gradient(to bottom, #3877ee, #ef5da8);
             }
+
             &-label {
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: column;
                 padding-left: 80px;
+
                 &-upper {
                     color: #42567a;
                     font-family: "PTSans Bold";
                     font-size: 56px;
                 }
+
                 &-lower {
                     color: #42567a;
                     font-family: "PTSans Bold";
@@ -59,18 +68,21 @@ body {
                 }
             }
         }
+
         &-line {
             &-vertical {
                 position: absolute;
                 height: 100%;
                 border-right: rgba($color: #42567a, $alpha: 10%) solid 1px;
             }
+
             &-horizontal {
                 position: absolute;
                 width: 100%;
                 border-top: rgba($color: #42567a, $alpha: 10%) solid 1px;
             }
         }
+
         &-circle {
             position: absolute;
             display: flex;
@@ -80,11 +92,13 @@ body {
             height: 530px;
             border: rgba($color: #42567a, $alpha: 20%) solid 1px;
             border-radius: 100%;
+
             &-buttons {
                 position: absolute;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
                 &-single {
                     transition: all 0.3s ease-in-out;
                     background-color: #42567a;
@@ -97,12 +111,15 @@ body {
                     text-indent: -9999em;
                     $angle: calc(360 / 6);
                     $rot: 0;
+
                     @for $i from 1 through 6 {
                         &:nth-of-type(#{$i}) {
                             transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
                         }
-                        $rot: $rot + $angle;
+
+                        $rot: $rot+$angle;
                     }
+
                     &-digit {
                         transition: 0.5s ease;
                         font-family: "PTSans";
@@ -115,6 +132,7 @@ body {
                         user-select: none;
                         pointer-events: none;
                     }
+
                     &-label {
                         transition: 0.5s ease;
                         font-family: "PTSans Bold";
@@ -127,6 +145,7 @@ body {
                         pointer-events: none;
                     }
                 }
+
                 &-single:hover {
                     transition: 0.5s;
                     display: flex;
@@ -143,12 +162,15 @@ body {
                     cursor: pointer;
                     $angle: calc(360 / 6);
                     $rot: 0;
+
                     @for $i from 1 through 6 {
                         &:nth-of-type(#{$i}) {
                             transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
                         }
-                        $rot: $rot + $angle;
+
+                        $rot: $rot+$angle;
                     }
+
                     &-digit {
                         font-family: "PTSans";
                         color: #42567a;
@@ -158,6 +180,52 @@ body {
                         width: 60px;
                         padding: 40px;
                     }
+
+                    &-label {
+                        font-family: "PTSans Bold";
+                        color: #42567a;
+                        font-size: 20px;
+                        line-height: 30px;
+                        letter-spacing: 0%;
+                        width: 0px;
+                    }
+                }
+
+                &-active {
+                    transition: 0.5s;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #f4f5f9;
+                    position: absolute;
+                    border-radius: 100%;
+                    border: rgba($color: #303e58, $alpha: 0.5) 1px solid;
+                    height: 56px;
+                    width: 56px;
+                    padding: 0;
+                    text-indent: 0;
+                    cursor: pointer;
+                    $angle: calc(360 / 6);
+                    $rot: 0;
+
+                    @for $i from 1 through 6 {
+                        &:nth-of-type(#{$i}) {
+                            transform: rotate(calc($rot * 1deg)) translate(calc(530px / 2)) rotate(calc($rot * -1deg));
+                        }
+
+                        $rot: $rot+$angle;
+                    }
+
+                    &-digit {
+                        font-family: "PTSans";
+                        color: #42567a;
+                        font-size: 20px;
+                        display: flex;
+                        justify-content: center;
+                        width: 60px;
+                        padding: 40px;
+                    }
+
                     &-label {
                         font-family: "PTSans Bold";
                         color: #42567a;
@@ -169,6 +237,7 @@ body {
                 }
             }
         }
+
         &-years {
             width: 100%;
             position: absolute;
@@ -176,6 +245,7 @@ body {
             justify-content: space-evenly;
             pointer-events: none;
             user-select: none;
+
             &-first {
                 width: auto;
                 font-weight: bold;
@@ -185,6 +255,7 @@ body {
                 font-size: 200px;
                 color: #5d5fef;
             }
+
             &-second {
                 width: auto;
                 font-weight: bold;
@@ -199,24 +270,22 @@ body {
         &-swiper {
             bottom: 0px;
             position: absolute;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            margin: 80px 0px 80px 0px;
-            justify-content: center;
             width: 1200px;
+            padding-bottom: 100px;
 
             &-switch {
-                flex-wrap: wrap;
                 display: flex;
-                align-items: center;
-                width: 1200px;
+                position: absolute;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                top: -120px;
+
                 &-pagination {
                     width: 100%;
                     font-size: 14px;
                     font-family: "PTSans";
-                    padding-bottom: 20px;
                 }
+
                 &-button {
                     display: flex;
                     justify-content: center;
@@ -231,25 +300,28 @@ body {
                     pointer-events: all;
                 }
             }
+
             &-dates {
                 display: flex;
-                padding-top: 56px;
                 width: 100%;
                 flex-wrap: wrap;
                 flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;
                 align-content: center;
+
                 &-events {
                     display: flex;
                     flex-wrap: wrap;
                     flex-direction: column;
+
                     &-year {
                         padding-bottom: 20px;
                         font-size: 25px;
                         font-family: "Bebas Neue";
                         color: #3877ee;
                     }
+
                     &-info {
                         width: 320px;
                         font-size: 20px;
@@ -270,15 +342,15 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+
     &-wrapper {
         position: absolute;
         display: flex;
-        padding-top: 56px;
-        width: 100%;
         flex-direction: row;
         align-content: center;
     }
-    &-slide{
-        width: 320px;
+
+    &-slide {
+        width: 320 px;
     }
 }

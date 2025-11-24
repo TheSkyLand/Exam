@@ -10,17 +10,17 @@ interface CircleButtonProps {
     firstYear: (value: number) => void,
     secondYear: (value: number) => void,
     rotate: (value: number) => void;
+    backnum: number,
     num: number,
     label: string,
-    
 }
 
 gsap.registerPlugin(useGSAP);
 
 const CircleButton = (props: CircleButtonProps) => {
-    const rot = (value : number) => {
+    const rot = (value: number) => {
         props.rotate(value)
-        let angle = 360 / props.num - 360 * -props.num
+        let angle = 360
         gsap.to(
             ".main-square-circle-buttons",
             {
@@ -29,9 +29,10 @@ const CircleButton = (props: CircleButtonProps) => {
             }
         )
         gsap.to(
-            ".main-square-circle-buttons-single",
+            ".main-square-circle-buttons",
             {
-                rotation: `-=${angle}`
+                duration: 1,
+                rotation: `+=${angle}`
             }
         )
         console.log("call successful")
@@ -46,14 +47,13 @@ const CircleButton = (props: CircleButtonProps) => {
         rot(t)
     }
 
-
-
     return (
         <div
-            className="main-square-circle-buttons-single"
+            className={props.num == props.backnum ? "main-square-circle-buttons-active" : "main-square-circle-buttons-single"}
             onClick={() => test(props.num)}
         >
-            <div className="main-square-circle-buttons-single-digit" >
+            <div
+                className="main-square-circle-buttons-single-digit" >
                 {props.num}
             </div>
             <div

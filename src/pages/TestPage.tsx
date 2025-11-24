@@ -15,19 +15,9 @@ import { Navigation } from 'swiper/modules';
 
 
 const TestPage = () => {
-    const [inputNum, setInput] = React.useState('');
     const [firstYear, setFirstYear] = React.useState("1980")
     const [secondYear, setSecondYear] = React.useState("1986")
-    const [counter, setCounter] = React.useState(1);
-    
-
-    const backFirstYear = (value: string) => {
-        setFirstYear(value.toString());
-    }
-
-    const backSecondYear = (value: string) => {
-        setSecondYear(value.toString());
-    }
+    const [counter, setCounter] = React.useState(5);
 
     const backCounter = (value: number) => {
         setCounter(value)
@@ -66,10 +56,11 @@ const TestPage = () => {
                     <div className="main-square-circle-buttons">
                         {YearsData.map((item, key) => (
                             <CircleButton
-                                firstYear={() => backFirstYear(item.firstYear)}
-                                secondYear={() => backSecondYear(item.secondYear)}
-                                rotate={() => backCounter(item.id)}
-                                num={item.id}
+                                firstYear={() => setFirstYear(item.firstYear)}
+                                secondYear={() => setSecondYear(item.secondYear)}
+                                rotate={() => backCounter(key + 1)}
+                                num={key + 1}
+                                backnum={counter}
                                 label={item.label}
 
                             />
