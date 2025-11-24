@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { data } from "react-router-dom";
+import { it } from "node:test";
 
 
 const TestPage = () => {
@@ -20,24 +21,31 @@ const TestPage = () => {
     const [secondYear, setSecondYear] = React.useState("1986")
     const [counter, setCounter] = React.useState(1);
 
-    {
-        SwiperData.map((index, key) => {
+    const [first, setFirst] = React.useState("")
+    const [second, setSecond] = React.useState("")
 
-            {
-                index.data.map((index, key) => {
-                    console.log(index.date, index.info)
-                })
+    const plswork = SwiperData.filter(item => item.id == counter)
+
+    const activate = (fv: number) => {
+        setCounter(fv)
+
+        YearsData.map((index, key) => {
+            if (fv === index.id) {
+                setFirstYear(index.firstYear)
             }
-
         })
+        YearsData.map((index, key) => {
+            if (fv === index.id) {
+                setSecondYear(index.secondYear)
+            }
+        })
+
     }
 
-    const backRotate = (value: number) => {
-        if (counter > 6) {
-            setCounter(1)
-        } else if (counter < 1) {
-            setCounter(6)
-        }
+    if (counter > 6) {
+        setCounter(1)
+    } else if (counter < 1) {
+        setCounter(6)
     }
 
 
@@ -79,11 +87,11 @@ const TestPage = () => {
                         <div className="main-square-swiper-switch-pagination">0{counter}/06</div>
                         <button
                             className="main-square-swiper-switch-button"
-                            onClick={() => setCounter(counter - 1)}
+                            onClick={() => activate(counter - 1)}
                         ><img src={require("../images/Vector2.svg")} /></button>
                         <button
                             className="main-square-swiper-switch-button"
-                            onClick={() => setCounter(counter + 1)}
+                            onClick={() => activate(counter + 1)}
                         ><img src={require("../images/Vector1.svg")} /></button>
                     </div>
 
@@ -92,16 +100,25 @@ const TestPage = () => {
                         slidesPerView={3}
                         modules={[Navigation]}
                         className="main-square-swiper-dates">
+                        {plswork.map(index => (
+                            <div>
+                                {index.data.map(item => (
+                                    <SwiperSlide>
+                                        <div
+                                            className="main-square-swiper-dates-events-year"
+                                        >
+                                            {item.date}
+                                        </div>
+                                        <div
+                                            className="main-square-swiper-dates-events-info"
+                                        >
+                                            {item.info}
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </div>
 
-                        {SwiperData.map((index) => (
-                            <SwiperSlide
-                                className="main-square-swiper-dates-events">
-                                    {SwiperData.find((index.id) => index.id == counter)}
-                                <div className="main-square-swiper-dates-events-year">{index.id}</div>
-                                <div className="main-square-swiper-dates-events-info">{index.id}</div>
-                            </SwiperSlide>
                         ))}
-
                     </Swiper>
                 </div>
             </div>
@@ -109,6 +126,7 @@ const TestPage = () => {
 
     )
 }
+
 
 export default TestPage
 
