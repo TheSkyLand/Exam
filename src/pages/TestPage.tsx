@@ -12,16 +12,13 @@ import "swiper/css"
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { data } from "react-router-dom";
 
 
 const TestPage = () => {
     const [firstYear, setFirstYear] = React.useState("1980")
     const [secondYear, setSecondYear] = React.useState("1986")
-    const [counter, setCounter] = React.useState(5);
-
-    const backCounter = (value: number) => {
-        setCounter(value)
-    }
+    const [counter, setCounter] = React.useState(1);
 
     {
         SwiperData.map((index, key) => {
@@ -34,6 +31,16 @@ const TestPage = () => {
 
         })
     }
+
+    const backRotate = (value: number) => {
+        if (counter > 6) {
+            setCounter(1)
+        } else if (counter < 1) {
+            setCounter(6)
+        }
+    }
+
+
 
 
     return (
@@ -58,7 +65,6 @@ const TestPage = () => {
                             <CircleButton
                                 firstYear={() => setFirstYear(item.firstYear)}
                                 secondYear={() => setSecondYear(item.secondYear)}
-                                rotate={() => backCounter(key + 1)}
                                 num={key + 1}
                                 backnum={counter}
                                 label={item.label}
@@ -86,9 +92,11 @@ const TestPage = () => {
                         slidesPerView={3}
                         modules={[Navigation]}
                         className="main-square-swiper-dates">
+
                         {SwiperData.map((index) => (
                             <SwiperSlide
                                 className="main-square-swiper-dates-events">
+                                    {SwiperData.find((index.id) => index.id == counter)}
                                 <div className="main-square-swiper-dates-events-year">{index.id}</div>
                                 <div className="main-square-swiper-dates-events-info">{index.id}</div>
                             </SwiperSlide>
@@ -98,6 +106,7 @@ const TestPage = () => {
                 </div>
             </div>
         </div >
+
     )
 }
 
