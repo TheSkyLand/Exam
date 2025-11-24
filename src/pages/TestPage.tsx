@@ -21,13 +21,22 @@ const TestPage = () => {
     const [secondYear, setSecondYear] = React.useState("1986")
     const [counter, setCounter] = React.useState(1);
 
-    const [first, setFirst] = React.useState("")
-    const [second, setSecond] = React.useState("")
-
     const plswork = SwiperData.filter(item => item.id == counter)
+
 
     const activate = (fv: number) => {
         setCounter(fv)
+
+        if (fv > 6) {
+            setCounter(1)
+            setFirstYear("1980")
+            setSecondYear("1986")
+        } else if (fv < 1) {
+            setCounter(6)
+            setFirstYear("2015")
+            setSecondYear("2022")
+        }
+
 
         YearsData.map((index, key) => {
             if (fv === index.id) {
@@ -42,11 +51,6 @@ const TestPage = () => {
 
     }
 
-    if (counter > 6) {
-        setCounter(1)
-    } else if (counter < 1) {
-        setCounter(6)
-    }
 
 
 
@@ -73,6 +77,7 @@ const TestPage = () => {
                             <CircleButton
                                 firstYear={() => setFirstYear(item.firstYear)}
                                 secondYear={() => setSecondYear(item.secondYear)}
+                                backCounter={() => setCounter(key + 1)}
                                 num={key + 1}
                                 backnum={counter}
                                 label={item.label}
