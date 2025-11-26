@@ -23,9 +23,11 @@ const TestPage = () => {
 
     const plswork = SwiperData.filter(item => item.id == counter)
 
+    const [angleRot, setAngleRot] = React.useState(0)
 
-    const activate = (fv: number) => {
+    const activate = (fv: number, angle: number) => {
         setCounter(fv)
+        setAngleRot(angle)
 
         if (fv > 6) {
             setCounter(1)
