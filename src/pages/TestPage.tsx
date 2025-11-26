@@ -25,9 +25,8 @@ const TestPage = () => {
 
     const [angleRot, setAngleRot] = React.useState(0)
 
-    const activate = (fv: number, angle: number) => {
+    const activate = (fv: number) => {
         setCounter(fv)
-        setAngleRot(angle)
 
         if (fv > 6) {
             setCounter(1)

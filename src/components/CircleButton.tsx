@@ -10,7 +10,6 @@ interface CircleButtonProps {
     firstYear: (value: number) => void,
     secondYear: (value: number) => void,
     backCounter: (value: number) => void,
-    backRotate: (value: number) => void,
     backnum: number,
     num: number,
     label: string,
@@ -68,7 +67,6 @@ const CircleButton = (props: CircleButtonProps) => {
         props.firstYear(t);
         props.secondYear(t);
         props.backCounter(t)
-        props.backRotate(t)
         rot(t)
     }
 
