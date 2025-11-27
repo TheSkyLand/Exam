@@ -8,13 +8,11 @@ import { useRef } from 'react';
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 
+
 import "swiper/css"
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { data } from "react-router-dom";
-import { it } from "node:test";
-
 
 const TestPage = () => {
     const [firstYear, setFirstYear] = React.useState("1980")
@@ -23,10 +21,11 @@ const TestPage = () => {
 
     const plswork = SwiperData.filter(item => item.id == counter)
 
-    const [angleRot, setAngleRot] = React.useState(0)
+    
 
     const activate = (fv: number) => {
         setCounter(fv)
+
 
         if (fv > 6) {
             setCounter(1)
@@ -82,7 +81,6 @@ const TestPage = () => {
                                 num={key + 1}
                                 backnum={counter}
                                 label={item.label}
-
                             />
                         ))
                         }

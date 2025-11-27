@@ -19,7 +19,7 @@ gsap.registerPlugin(useGSAP);
 
 const CircleButton = (props: CircleButtonProps) => {
     const rot = (value: number) => {
-        let angle = value;
+        let angle = 90 * props.num
         gsap.to(
             ".main-square-circle-buttons",
             {
@@ -27,39 +27,24 @@ const CircleButton = (props: CircleButtonProps) => {
                 rotation: `+=${angle}`
             }
         )
-
         gsap.to(
             ".main-square-circle-buttons-single",
             {
-                duration: 1,
-                rotation: `-=${angle}`,
+                rotation: `-=${angle}`
             }
         )
-
-        
         gsap.to(
-            ".main-square-circle-buttons-single:active",
+            ".main-square-circle-buttons-single:hover",
             {
-                duration: 1,
-                rotation: `+=${angle}`,
+                rotation: `-=${angle}`
             }
         )
-
                 gsap.to(
-            ".main-square-circle-buttons-single:hover",
+            ".main-square-circle-buttons-active",
             {
-                duration: 1,
-                rotation: `+=${angle}`,
+                rotation: `-=${angle}`
             }
         )
-        gsap.to(
-            ".main-square-circle-buttons-single:hover",
-            {
-                duration: 1,
-                rotation: `-=${angle}`,
-            }
-        )
-
         console.log("call successful")
     }
 

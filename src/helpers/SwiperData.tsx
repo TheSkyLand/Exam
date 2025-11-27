@@ -32,7 +32,7 @@ export const SwiperData = [
             }
         ]
     },
-        {
+    {
         id: 2,
         data: [
             {
@@ -54,7 +54,12 @@ export const SwiperData = [
             {
                 date: "1991",
                 info: "test"
-            },
+            }
+        ]
+    },
+    {
+        id: 3,
+        data: [
             {
                 date: "1992",
                 info: "test"
@@ -62,12 +67,7 @@ export const SwiperData = [
             {
                 date: "1993",
                 info: "test"
-            }
-        ]
-    },
-        {
-        id: 3,
-        data: [
+            },
             {
                 date: "1994",
                 info: "test"
@@ -84,23 +84,23 @@ export const SwiperData = [
                 date: "1997",
                 info: "test"
             },
-            {
-                date: "1998",
-                info: "test"
-            },
+        ]
+    },
+    {
+        id: 4,
+        data: [
             {
                 date: "1999",
                 info: "test"
             },
             {
+                date: "2000",
+                info: "test"
+            },
+            {
                 date: "2001",
                 info: "test"
-            }
-        ]
-    },
-        {
-        id: 4,
-        data: [
+            },
             {
                 date: "2002",
                 info: "test"
@@ -112,11 +112,12 @@ export const SwiperData = [
             {
                 date: "2004",
                 info: "test"
-            },
-            {
-                date: "2005",
-                info: "test"
-            },
+            }
+        ]
+    },
+    {
+        id: 5,
+        data: [
             {
                 date: "2006",
                 info: "test"
@@ -128,12 +129,7 @@ export const SwiperData = [
             {
                 date: "2008",
                 info: "test"
-            }
-        ]
-    },
-        {
-        id: 5,
-        data: [
+            },
             {
                 date: "2009",
                 info: "test"
@@ -158,15 +154,15 @@ export const SwiperData = [
                 date: "2014",
                 info: "test"
             },
+        ]
+    },
+    {
+        id: 6,
+        data: [
             {
                 date: "2015",
                 info: "test"
-            }
-        ]
-    },
-        {
-        id: 6,
-        data: [
+            },
             {
                 date: "2016",
                 info: "test"
@@ -191,7 +187,7 @@ export const SwiperData = [
                 date: "2021",
                 info: "test"
             },
-            {
+                        {
                 date: "2022",
                 info: "test"
             }
